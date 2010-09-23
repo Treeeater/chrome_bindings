@@ -80,6 +80,8 @@ static v8::Handle<v8::Value> documentElementAttrGetter(v8::Local<v8::String> nam
 {
     INC_STATS("DOM.Document.documentElement._get");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "documentgetterACL";
+	if (!security_check(imp,ACLname)) return v8String("");
     return toV8(imp->documentElement());
 }
 
@@ -139,6 +141,8 @@ static v8::Handle<v8::Value> documentURIAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Document.documentURI._get");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "URIgetterACL";
+	if (!security_check(imp,ACLname)) return v8String("");
     return v8StringOrNull(imp->documentURI());
 }
 
@@ -146,6 +150,8 @@ static void documentURIAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Document.documentURI._set");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "URIsetterACL";
+	if (!security_check(imp,ACLname)) return;
     V8Parameter<WithNullCheck> v = value;
     imp->setDocumentURI(v);
     return;
@@ -162,6 +168,8 @@ static v8::Handle<v8::Value> styleSheetsAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Document.styleSheets._get");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "CSSgetterACL";
+	if (!security_check(imp,ACLname)) return v8String("");
     return toV8(imp->styleSheets());
 }
 
@@ -169,6 +177,8 @@ static v8::Handle<v8::Value> titleAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.Document.title._get");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "titlegetterACL";
+	if (!security_check(imp,ACLname)) return v8String("");
     return v8String(imp->title());
 }
 
@@ -176,6 +186,8 @@ static void titleAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> val
 {
     INC_STATS("DOM.Document.title._set");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "titlesetterACL";
+	if (!security_check(imp,ACLname)) return;
     V8Parameter<WithNullCheck> v = value;
     imp->setTitle(v);
     return;
@@ -185,6 +197,8 @@ static v8::Handle<v8::Value> referrerAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.Document.referrer._get");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "referrergetterACL";
+	if (!security_check(imp,ACLname)) return v8String("");
     return v8String(imp->referrer());
 }
 
@@ -192,6 +206,8 @@ static v8::Handle<v8::Value> domainAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.Document.domain._get");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "domaingetterACL";
+	if (!security_check(imp,ACLname)) return v8String("");
     return v8String(imp->domain());
 }
 
@@ -201,6 +217,8 @@ static void domainAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> va
     Document* imp = V8Document::toNative(info.Holder());
     V8Parameter<WithNullCheck> v = value;
     ExceptionCode ec = 0;
+	WTF::String ACLname = "domainsetterACL";
+	if (!security_check(imp,ACLname)) return;
     imp->setDomain(v, ec);
     if (UNLIKELY(ec))
         V8Proxy::setDOMException(ec);
@@ -211,6 +229,8 @@ static v8::Handle<v8::Value> URLAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.Document.URL._get");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "URLgetterACL";
+	if (!security_check(imp,ACLname)) return v8String("");
     return v8String(imp->url());
 }
 
@@ -218,6 +238,8 @@ static v8::Handle<v8::Value> cookieAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.Document.cookie._get");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "cookiegetterACL";
+	if (!security_check(imp,ACLname)) return v8String("");
     ExceptionCode ec = 0;
     String v = imp->cookie(ec);
     if (UNLIKELY(ec)) {
@@ -233,6 +255,8 @@ static void cookieAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> va
     Document* imp = V8Document::toNative(info.Holder());
     V8Parameter<WithNullCheck> v = value;
     ExceptionCode ec = 0;
+	WTF::String ACLname = "cookiesetterACL";
+	if (!security_check(imp,ACLname)) return;
     imp->setCookie(v, ec);
     if (UNLIKELY(ec))
         V8Proxy::setDOMException(ec);
@@ -243,6 +267,8 @@ static v8::Handle<v8::Value> bodyAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.Document.body._get");
     Document* imp = V8Document::toNative(info.Holder());
+	WTF::String ACLname = "bodygetterACL";
+	if (!security_check(imp,ACLname)) return v8String("");
     return toV8(imp->body());
 }
 
@@ -252,6 +278,8 @@ static void bodyAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> valu
     Document* imp = V8Document::toNative(info.Holder());
     HTMLElement* v = V8HTMLElement::HasInstance(value) ? V8HTMLElement::toNative(v8::Handle<v8::Object>::Cast(value)) : 0;
     ExceptionCode ec = 0;
+	WTF::String ACLname = "bodysetterACL";
+	if (!security_check(imp,ACLname)) return;
     imp->setBody(WTF::getPtr(v), ec);
     if (UNLIKELY(ec))
         V8Proxy::setDOMException(ec);
