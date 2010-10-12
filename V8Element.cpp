@@ -46,6 +46,32 @@ namespace WebCore {
 
 WrapperTypeInfo V8Element::info = { V8Element::GetTemplate, V8Element::derefObject, 0 };
 
+bool RO_check4(Node *imp)
+{
+	if (imp->isHTMLElement())
+	{
+		String ROACL = ((Element*) imp)->getAttribute("ROACL");
+		if ((ROACL != NULL)&&(ROACL != ""))
+		{
+			int worldID = 0;
+			V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
+			if (isolatedContext!=0) worldID = isolatedContext->getWorldID();
+			Vector<WTF::String> ACLs;
+			ROACL.split(";",ACLs);
+			for (unsigned int i=0; i<ACLs.size(); i++)
+			{
+				if (worldID==ACLs[i].toInt())
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		return true;
+	}
+	return true;
+}
+
 namespace ElementInternal {
 
 template <typename T> void V8_USE(T) { }
@@ -219,6 +245,7 @@ static void onabortAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> v
 {
     INC_STATS("DOM.Element.onabort._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onabort(), value, V8Element::eventListenerCacheIndex);
     imp->setOnabort(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -235,6 +262,7 @@ static void onblurAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> va
 {
     INC_STATS("DOM.Element.onblur._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onblur(), value, V8Element::eventListenerCacheIndex);
     imp->setOnblur(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -251,6 +279,7 @@ static void onchangeAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> 
 {
     INC_STATS("DOM.Element.onchange._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onchange(), value, V8Element::eventListenerCacheIndex);
     imp->setOnchange(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -267,6 +296,7 @@ static void onclickAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> v
 {
     INC_STATS("DOM.Element.onclick._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onclick(), value, V8Element::eventListenerCacheIndex);
     imp->setOnclick(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -283,6 +313,7 @@ static void oncontextmenuAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Va
 {
     INC_STATS("DOM.Element.oncontextmenu._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->oncontextmenu(), value, V8Element::eventListenerCacheIndex);
     imp->setOncontextmenu(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -299,6 +330,7 @@ static void ondblclickAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value
 {
     INC_STATS("DOM.Element.ondblclick._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ondblclick(), value, V8Element::eventListenerCacheIndex);
     imp->setOndblclick(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -315,6 +347,7 @@ static void ondragAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> va
 {
     INC_STATS("DOM.Element.ondrag._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ondrag(), value, V8Element::eventListenerCacheIndex);
     imp->setOndrag(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -331,6 +364,7 @@ static void ondragendAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.Element.ondragend._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ondragend(), value, V8Element::eventListenerCacheIndex);
     imp->setOndragend(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -347,6 +381,7 @@ static void ondragenterAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Element.ondragenter._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ondragenter(), value, V8Element::eventListenerCacheIndex);
     imp->setOndragenter(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -363,6 +398,7 @@ static void ondragleaveAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Element.ondragleave._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ondragleave(), value, V8Element::eventListenerCacheIndex);
     imp->setOndragleave(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -379,6 +415,7 @@ static void ondragoverAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value
 {
     INC_STATS("DOM.Element.ondragover._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ondragover(), value, V8Element::eventListenerCacheIndex);
     imp->setOndragover(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -395,6 +432,7 @@ static void ondragstartAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Element.ondragstart._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ondragstart(), value, V8Element::eventListenerCacheIndex);
     imp->setOndragstart(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -411,6 +449,7 @@ static void ondropAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> va
 {
     INC_STATS("DOM.Element.ondrop._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ondrop(), value, V8Element::eventListenerCacheIndex);
     imp->setOndrop(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -427,6 +466,7 @@ static void onerrorAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> v
 {
     INC_STATS("DOM.Element.onerror._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onerror(), value, V8Element::eventListenerCacheIndex);
     imp->setOnerror(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -443,6 +483,7 @@ static void onfocusAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> v
 {
     INC_STATS("DOM.Element.onfocus._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onfocus(), value, V8Element::eventListenerCacheIndex);
     imp->setOnfocus(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -459,6 +500,7 @@ static void oninputAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> v
 {
     INC_STATS("DOM.Element.oninput._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->oninput(), value, V8Element::eventListenerCacheIndex);
     imp->setOninput(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -475,6 +517,7 @@ static void oninvalidAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.Element.oninvalid._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->oninvalid(), value, V8Element::eventListenerCacheIndex);
     imp->setOninvalid(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -491,6 +534,7 @@ static void onkeydownAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.Element.onkeydown._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onkeydown(), value, V8Element::eventListenerCacheIndex);
     imp->setOnkeydown(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -507,6 +551,7 @@ static void onkeypressAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value
 {
     INC_STATS("DOM.Element.onkeypress._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onkeypress(), value, V8Element::eventListenerCacheIndex);
     imp->setOnkeypress(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -523,6 +568,7 @@ static void onkeyupAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> v
 {
     INC_STATS("DOM.Element.onkeyup._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onkeyup(), value, V8Element::eventListenerCacheIndex);
     imp->setOnkeyup(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -539,6 +585,7 @@ static void onloadAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> va
 {
     INC_STATS("DOM.Element.onload._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onload(), value, V8Element::eventListenerCacheIndex);
     imp->setOnload(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -555,6 +602,7 @@ static void onmousedownAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Element.onmousedown._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onmousedown(), value, V8Element::eventListenerCacheIndex);
     imp->setOnmousedown(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -571,6 +619,7 @@ static void onmousemoveAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Element.onmousemove._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onmousemove(), value, V8Element::eventListenerCacheIndex);
     imp->setOnmousemove(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -587,6 +636,7 @@ static void onmouseoutAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value
 {
     INC_STATS("DOM.Element.onmouseout._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onmouseout(), value, V8Element::eventListenerCacheIndex);
     imp->setOnmouseout(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -603,6 +653,7 @@ static void onmouseoverAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Element.onmouseover._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onmouseover(), value, V8Element::eventListenerCacheIndex);
     imp->setOnmouseover(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -619,6 +670,7 @@ static void onmouseupAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.Element.onmouseup._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onmouseup(), value, V8Element::eventListenerCacheIndex);
     imp->setOnmouseup(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -635,6 +687,7 @@ static void onmousewheelAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Val
 {
     INC_STATS("DOM.Element.onmousewheel._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onmousewheel(), value, V8Element::eventListenerCacheIndex);
     imp->setOnmousewheel(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -651,6 +704,7 @@ static void onscrollAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> 
 {
     INC_STATS("DOM.Element.onscroll._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onscroll(), value, V8Element::eventListenerCacheIndex);
     imp->setOnscroll(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -667,6 +721,7 @@ static void onselectAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> 
 {
     INC_STATS("DOM.Element.onselect._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onselect(), value, V8Element::eventListenerCacheIndex);
     imp->setOnselect(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -683,6 +738,7 @@ static void onsubmitAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> 
 {
     INC_STATS("DOM.Element.onsubmit._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onsubmit(), value, V8Element::eventListenerCacheIndex);
     imp->setOnsubmit(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -699,6 +755,7 @@ static void onbeforecutAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Element.onbeforecut._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onbeforecut(), value, V8Element::eventListenerCacheIndex);
     imp->setOnbeforecut(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -715,6 +772,7 @@ static void oncutAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> val
 {
     INC_STATS("DOM.Element.oncut._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->oncut(), value, V8Element::eventListenerCacheIndex);
     imp->setOncut(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -731,6 +789,7 @@ static void onbeforecopyAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Val
 {
     INC_STATS("DOM.Element.onbeforecopy._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onbeforecopy(), value, V8Element::eventListenerCacheIndex);
     imp->setOnbeforecopy(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -747,6 +806,7 @@ static void oncopyAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> va
 {
     INC_STATS("DOM.Element.oncopy._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->oncopy(), value, V8Element::eventListenerCacheIndex);
     imp->setOncopy(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -763,6 +823,7 @@ static void onbeforepasteAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Va
 {
     INC_STATS("DOM.Element.onbeforepaste._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onbeforepaste(), value, V8Element::eventListenerCacheIndex);
     imp->setOnbeforepaste(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -779,6 +840,7 @@ static void onpasteAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> v
 {
     INC_STATS("DOM.Element.onpaste._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onpaste(), value, V8Element::eventListenerCacheIndex);
     imp->setOnpaste(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -795,6 +857,7 @@ static void onresetAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> v
 {
     INC_STATS("DOM.Element.onreset._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onreset(), value, V8Element::eventListenerCacheIndex);
     imp->setOnreset(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -811,6 +874,7 @@ static void onsearchAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> 
 {
     INC_STATS("DOM.Element.onsearch._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onsearch(), value, V8Element::eventListenerCacheIndex);
     imp->setOnsearch(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -827,6 +891,7 @@ static void onselectstartAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Va
 {
     INC_STATS("DOM.Element.onselectstart._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->onselectstart(), value, V8Element::eventListenerCacheIndex);
     imp->setOnselectstart(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -849,6 +914,7 @@ static void ontouchstartAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Val
 {
     INC_STATS("DOM.Element.ontouchstart._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ontouchstart(), value, V8Element::eventListenerCacheIndex);
     imp->setOntouchstart(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -873,6 +939,7 @@ static void ontouchmoveAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Element.ontouchmove._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ontouchmove(), value, V8Element::eventListenerCacheIndex);
     imp->setOntouchmove(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -897,6 +964,7 @@ static void ontouchendAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value
 {
     INC_STATS("DOM.Element.ontouchend._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ontouchend(), value, V8Element::eventListenerCacheIndex);
     imp->setOntouchend(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -921,6 +989,7 @@ static void ontouchcancelAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Va
 {
     INC_STATS("DOM.Element.ontouchcancel._set");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!RO_check4(imp)) return;
     transferHiddenDependency(info.Holder(), imp->ontouchcancel(), value, V8Element::eventListenerCacheIndex);
     imp->setOntouchcancel(V8DOMWrapper::getEventListener(value, true, ListenerFindOrCreate));
     return;
@@ -948,7 +1017,8 @@ static v8::Handle<v8::Value> setAttributeCallback(const v8::Arguments& args)
 	V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
 	int worldID = 0;
 	if (isolatedContext!=0) worldID = isolatedContext->getWorldID();
-
+	if (((WTF::AtomicString)name == "worldID")||((WTF::AtomicString)name == "ACL")||((WTF::AtomicString)name == "ROACL")) return v8::Handle<v8::Value>();		//worldID and ACL and RO is readonly forever
+	if (!RO_check4(imp)) return v8::Handle<v8::Value>();
     imp->setAttribute(name, value, ec, worldID);
     if (UNLIKELY(ec))
         goto fail;
@@ -966,6 +1036,8 @@ static v8::Handle<v8::Value> removeAttributeCallback(const v8::Arguments& args)
     ExceptionCode ec = 0;
     {
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, name, args[0]);
+	if (((WTF::AtomicString)name == "worldID")||((WTF::AtomicString)name == "ACL")||((WTF::AtomicString)name == "ROACL")) return v8::Handle<v8::Value>();
+	if (!RO_check4(imp)) return v8::Handle<v8::Value>();
     imp->removeAttribute(name, ec);
     if (UNLIKELY(ec))
         goto fail;

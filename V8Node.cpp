@@ -42,6 +42,32 @@ namespace WebCore {
 
 WrapperTypeInfo V8Node::info = { V8Node::GetTemplate, V8Node::derefObject, 0 };
 
+bool RO_check3(Node *imp)
+{
+	if (imp->isHTMLElement())
+	{
+		String ROACL = ((Element*) imp)->getAttribute("ROACL");
+		if ((ROACL != NULL)&&(ROACL != ""))
+		{
+			int worldID = 0;
+			V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
+			if (isolatedContext!=0) worldID = isolatedContext->getWorldID();
+			Vector<WTF::String> ACLs;
+			ROACL.split(";",ACLs);
+			for (unsigned int i=0; i<ACLs.size(); i++)
+			{
+				if (worldID==ACLs[i].toInt())
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		return true;
+	}
+	return true;
+}
+
 namespace NodeInternal {
 
 template <typename T> void V8_USE(T) { }
@@ -64,6 +90,14 @@ static void nodeValueAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.Node.nodeValue._set");
     Node* imp = V8Node::toNative(info.Holder());
+	if (!RO_check3(imp)) return;
+	if (imp->nodeType() == 3)	//3 is textnode
+	{
+		if (imp->parent())
+		{
+			if (!RO_check3(imp->parent())) return;
+		}
+	}
     V8Parameter<WithNullCheck> v = value;
     ExceptionCode ec = 0;
     imp->setNodeValue(v, ec);
@@ -153,6 +187,7 @@ static void prefixAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> va
 {
     INC_STATS("DOM.Node.prefix._set");
     Node* imp = V8Node::toNative(info.Holder());
+	if (!RO_check3(imp)) return;
     V8Parameter<WithNullCheck> v = value;
     ExceptionCode ec = 0;
     imp->setPrefix(v, ec);
@@ -186,6 +221,7 @@ static void textContentAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Valu
 {
     INC_STATS("DOM.Node.textContent._set");
     Node* imp = V8Node::toNative(info.Holder());
+	if (!RO_check3(imp)) return;
     V8Parameter<WithNullCheck> v = value;
     ExceptionCode ec = 0;
     imp->setTextContent(v, ec);
@@ -290,13 +326,14 @@ static v8::Handle<v8::Value> compareDocumentPositionCallback(const v8::Arguments
 
 static v8::Handle<v8::Value> addEventListenerCallback(const v8::Arguments& args)
 {
+    INC_STATS("DOM.Node.addEventListener()");
+	if (!RO_check3(V8Node::toNative(args.Holder()))) return v8::Undefined();
 	V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
 	int worldID = 0;
 	if (isolatedContext!=0) worldID = isolatedContext->getWorldID();
-
-    INC_STATS("DOM.Node.addEventListener()");
     RefPtr<EventListener> listener = V8DOMWrapper::getEventListener(args[1], false, ListenerFindOrCreate);
 	listener->setWorldID(worldID);
+
     if (listener) {
         V8Node::toNative(args.Holder())->addEventListener(v8ValueToAtomicWebCoreString(args[0]), listener, args[2]->BooleanValue());
         createHiddenDependency(args.Holder(), args[1], V8Node::eventListenerCacheIndex);
@@ -307,6 +344,7 @@ static v8::Handle<v8::Value> addEventListenerCallback(const v8::Arguments& args)
 static v8::Handle<v8::Value> removeEventListenerCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Node.removeEventListener()");
+	if (!RO_check3(V8Node::toNative(args.Holder()))) return v8::Undefined();
     RefPtr<EventListener> listener = V8DOMWrapper::getEventListener(args[1], false, ListenerFindOnly);
     if (listener) {
         V8Node::toNative(args.Holder())->removeEventListener(v8ValueToAtomicWebCoreString(args[0]), listener.get(), args[2]->BooleanValue());
