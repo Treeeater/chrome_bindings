@@ -38,32 +38,6 @@
 
 namespace WebCore {
 
-	bool RO_check2(Node *imp)
-	{
-		if (imp->isHTMLElement())
-		{
-			String ROACL = ((Element*) imp)->getAttribute("ROACL");
-			if ((ROACL != NULL)&&(ROACL != ""))
-			{
-				int worldID = 0;
-				V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
-				if (isolatedContext!=0) worldID = isolatedContext->getWorldID();
-				Vector<WTF::String> ACLs;
-				ROACL.split(";",ACLs);
-				for (unsigned int i=0; i<ACLs.size(); i++)
-				{
-					if (worldID==ACLs[i].toInt())
-					{
-						return true;
-					}
-				}
-				return false;
-			}
-			return true;
-		}
-		return true;
-	}
-
 WrapperTypeInfo V8HTMLElement::info = { V8HTMLElement::GetTemplate, V8HTMLElement::derefObject, 0 };
 
 namespace HTMLElementInternal {
@@ -79,8 +53,6 @@ static v8::Handle<v8::Value> idAttrGetter(v8::Local<v8::String> name, const v8::
 static void idAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> value, const v8::AccessorInfo& info)
 {
     INC_STATS("DOM.HTMLElement.id._set");
-	HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
     setElementStringAttr(info, HTMLNames::idAttr, value);
 }
 
@@ -93,8 +65,6 @@ static v8::Handle<v8::Value> titleAttrGetter(v8::Local<v8::String> name, const v
 static void titleAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> value, const v8::AccessorInfo& info)
 {
     INC_STATS("DOM.HTMLElement.title._set");
-	HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
     setElementStringAttr(info, HTMLNames::titleAttr, value);
 }
 
@@ -107,8 +77,7 @@ static v8::Handle<v8::Value> langAttrGetter(v8::Local<v8::String> name, const v8
 static void langAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> value, const v8::AccessorInfo& info)
 {
     INC_STATS("DOM.HTMLElement.lang._set");
-	HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+
     setElementStringAttr(info, HTMLNames::langAttr, value);
 }
 
@@ -121,8 +90,7 @@ static v8::Handle<v8::Value> dirAttrGetter(v8::Local<v8::String> name, const v8:
 static void dirAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> value, const v8::AccessorInfo& info)
 {
     INC_STATS("DOM.HTMLElement.dir._set");
-	HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+
     setElementStringAttr(info, HTMLNames::dirAttr, value);
 }
 
@@ -135,8 +103,7 @@ static v8::Handle<v8::Value> classNameAttrGetter(v8::Local<v8::String> name, con
 static void classNameAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> value, const v8::AccessorInfo& info)
 {
     INC_STATS("DOM.HTMLElement.className._set");
-	HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+
     setElementStringAttr(info, HTMLNames::classAttr, value);
 }
 
@@ -151,7 +118,7 @@ static void tabIndexAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> 
 {
     INC_STATS("DOM.HTMLElement.tabIndex._set");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+	if (!RO_check(imp)) return;
     int v = toInt32(value);
     imp->setTabIndex(v);
     return;
@@ -168,7 +135,7 @@ static void draggableAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.HTMLElement.draggable._set");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+	if (!RO_check(imp)) return;
     bool v = value->BooleanValue();
     imp->setDraggable(v);
     return;
@@ -185,7 +152,7 @@ static void hiddenAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value> va
 {
     INC_STATS("DOM.HTMLElement.hidden._set");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+	if (!RO_check(imp)) return;
     bool v = value->BooleanValue();
     imp->setBooleanAttribute(WebCore::HTMLNames::hiddenAttr, v);
     return;
@@ -202,7 +169,7 @@ static void innerHTMLAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.HTMLElement.innerHTML._set");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+	if (!RO_check(imp)) return;
     V8Parameter<WithNullCheck> v = value;
     ExceptionCode ec = 0;
     imp->setInnerHTML(v, ec);
@@ -222,7 +189,7 @@ static void innerTextAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.HTMLElement.innerText._set");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+	if (!RO_check(imp)) return;
     V8Parameter<WithNullCheck> v = value;
     ExceptionCode ec = 0;
     imp->setInnerText(v, ec);
@@ -242,7 +209,7 @@ static void outerHTMLAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.HTMLElement.outerHTML._set");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+	if (!RO_check(imp)) return;
     V8Parameter<WithNullCheck> v = value;
     ExceptionCode ec = 0;
     imp->setOuterHTML(v, ec);
@@ -262,7 +229,7 @@ static void outerTextAttrSetter(v8::Local<v8::String> name, v8::Local<v8::Value>
 {
     INC_STATS("DOM.HTMLElement.outerText._set");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+	if (!RO_check(imp)) return;
     V8Parameter<WithNullCheck> v = value;
     ExceptionCode ec = 0;
     imp->setOuterText(v, ec);
@@ -289,7 +256,7 @@ static void contentEditableAttrSetter(v8::Local<v8::String> name, v8::Local<v8::
 {
     INC_STATS("DOM.HTMLElement.contentEditable._set");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
-	if (!RO_check2(imp)) return;
+	if (!RO_check(imp)) return;
     V8Parameter<WithNullCheck> v = value;
     imp->setContentEditable(v);
     return;
