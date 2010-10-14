@@ -65,6 +65,28 @@ namespace WebCore {
 
 WrapperTypeInfo V8Document::info = { V8Document::GetTemplate, V8Document::derefObject, 0 };
 
+bool security_check(Document *imp, WTF::String name)
+{
+	if (imp->firstChild()==NULL) return true;
+	if (!imp->firstChild()->isHTMLElement()) return true;
+	WTF::String Acl=((Element*)imp->firstChild())->getAttribute(name);
+	if ((Acl=="")||(Acl==0)) return true;
+	V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
+	int worldID = 0;
+	if (isolatedContext!=0) worldID = isolatedContext->getWorldID();
+	Vector<WTF::String> ACLs;
+	Acl.split(";",ACLs);
+	for (unsigned int i=0; i<ACLs.size(); i++)
+	{
+		if (worldID==ACLs[i].toInt())
+		{
+			break;
+		}
+		return false;
+	}
+	return true;
+};
+
 namespace DocumentInternal {
 
 template <typename T> void V8_USE(T) { }
