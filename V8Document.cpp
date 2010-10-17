@@ -74,6 +74,7 @@ bool security_check(Document *imp, WTF::String name)
 	V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
 	int worldID = 0;
 	if (isolatedContext!=0) worldID = isolatedContext->getWorldID();
+	if ((worldID == 0)||(worldID == -1)) return true;
 	Vector<WTF::String> ACLs;
 	Acl.split(";",ACLs);
 	for (unsigned int i=0; i<ACLs.size(); i++)
