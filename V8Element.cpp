@@ -1034,6 +1034,7 @@ static v8::Handle<v8::Value> setAttributeNodeCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.setAttributeNode");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!RO_check(imp)) return v8::Handle<v8::Value>();
     ExceptionCode ec = 0;
     {
     Attr* newAttr = V8Attr::HasInstance(args[0]) ? V8Attr::toNative(v8::Handle<v8::Object>::Cast(args[0])) : 0;
@@ -1055,6 +1056,7 @@ static v8::Handle<v8::Value> removeAttributeNodeCallback(const v8::Arguments& ar
 {
     INC_STATS("DOM.Element.removeAttributeNode");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!RO_check(imp)) return v8::Handle<v8::Value>();
     ExceptionCode ec = 0;
     {
     Attr* oldAttr = V8Attr::HasInstance(args[0]) ? V8Attr::toNative(v8::Handle<v8::Object>::Cast(args[0])) : 0;
@@ -1093,6 +1095,7 @@ static v8::Handle<v8::Value> setAttributeNSCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.setAttributeNS");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!RO_check(imp)) return v8::Handle<v8::Value>();
     ExceptionCode ec = 0;
     {
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<WithNullCheck>, namespaceURI, args[0]);
@@ -1112,6 +1115,7 @@ static v8::Handle<v8::Value> removeAttributeNSCallback(const v8::Arguments& args
 {
     INC_STATS("DOM.Element.removeAttributeNS");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!RO_check(imp)) return v8::Handle<v8::Value>();
     ExceptionCode ec = 0;
     {
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<WithNullCheck>, namespaceURI, args[0]);

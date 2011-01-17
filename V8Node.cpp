@@ -132,7 +132,9 @@ static v8::Handle<v8::Value> nextSiblingAttrGetter(v8::Local<v8::String> name, c
 static v8::Handle<v8::Value> attributesAttrGetter(v8::Local<v8::String> name, const v8::AccessorInfo& info)
 {
     INC_STATS("DOM.Node.attributes._get");
+	//zyc: no reason to give attributes to readonly nodes.
     Node* imp = V8Node::toNative(info.Holder());
+	if (!RO_check(imp)) return v8::Undefined();
     return toV8(imp->attributes());
 }
 

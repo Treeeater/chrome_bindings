@@ -65,13 +65,17 @@ namespace WebCore {
 
 WrapperTypeInfo V8Document::info = { V8Document::GetTemplate, V8Document::derefObject, 0 };
 
-bool security_check(Document *imp, WTF::String name)
+bool security_check(Document *imp, WTF::String name)			//checking specific DOM API calls
 {
 	if (imp->firstChild()==NULL) return true;
 	if (!imp->firstChild()->isHTMLElement()) return true;
+	V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
+	if (isolatedContext!=0)
+	{
+		if (isolatedContext->is_SharedLib()) return true;
+	}
 	WTF::String Acl=((Element*)imp->firstChild())->getAttribute(name);
 	if ((Acl=="")||(Acl==0)) return true;
-	V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
 	int worldID = 0;
 	if (isolatedContext!=0) worldID = isolatedContext->getWorldID();
 	if ((worldID == 0)||(worldID == -1)) return true;
