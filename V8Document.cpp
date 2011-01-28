@@ -68,13 +68,24 @@ WrapperTypeInfo V8Document::info = { V8Document::GetTemplate, V8Document::derefO
 bool security_check(Document *imp, WTF::String name)			//checking specific DOM API calls
 {
 	if (imp->firstChild()==NULL) return true;
-	if (!imp->firstChild()->isHTMLElement()) return true;
+	bool flag = false;
+	if (!imp->firstChild()->isHTMLElement())
+	{
+		//to check if the document has a DTD at the beginning.
+		if ((!imp->firstChild()->nextSibling())||(!imp->firstChild()->nextSibling()->isHTMLElement())) return true;
+		flag = true;
+	}
 	V8IsolatedContext* isolatedContext = V8IsolatedContext::getEntered();
 	if (isolatedContext!=0)
 	{
 		if (isolatedContext->is_SharedLib()) return true;
 	}
-	WTF::String Acl=((Element*)imp->firstChild())->getAttribute(name);
+	WTF::String Acl;
+	if (!flag)
+	{
+		Acl=((Element*)imp->firstChild())->getAttribute(name);
+	}
+	else Acl = ((Element*)((Element*)imp->firstChild()->nextSibling()))->getAttribute(name);
 	if ((Acl=="")||(Acl==0)) return true;
 	int worldID = 0;
 	if (isolatedContext!=0) worldID = isolatedContext->getWorldID();
