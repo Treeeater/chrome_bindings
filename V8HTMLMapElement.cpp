@@ -46,6 +46,7 @@ static v8::Handle<v8::Value> areasAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLMapElement.areas._get");
     HTMLMapElement* imp = V8HTMLMapElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->areas());
 }
 

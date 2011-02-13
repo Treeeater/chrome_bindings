@@ -47,6 +47,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLObjectElement.form._get");
     HTMLObjectElement* imp = V8HTMLObjectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -126,6 +127,7 @@ static v8::Handle<v8::Value> dataAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLObjectElement.data._get");
     HTMLObjectElement* imp = V8HTMLObjectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::dataAttr));
 }
 
@@ -139,6 +141,7 @@ static v8::Handle<v8::Value> declareAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLObjectElement.declare._get");
     HTMLObjectElement* imp = V8HTMLObjectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::declareAttr));
 }
 
@@ -167,6 +170,7 @@ static v8::Handle<v8::Value> hspaceAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLObjectElement.hspace._get");
     HTMLObjectElement* imp = V8HTMLObjectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->getIntegralAttribute(WebCore::HTMLNames::hspaceAttr));
 }
 
@@ -231,6 +235,7 @@ static v8::Handle<v8::Value> vspaceAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLObjectElement.vspace._get");
     HTMLObjectElement* imp = V8HTMLObjectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->getIntegralAttribute(WebCore::HTMLNames::vspaceAttr));
 }
 
@@ -259,6 +264,7 @@ static v8::Handle<v8::Value> willValidateAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLObjectElement.willValidate._get");
     HTMLObjectElement* imp = V8HTMLObjectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->willValidate());
 }
 
@@ -266,6 +272,7 @@ static v8::Handle<v8::Value> contentDocumentAttrGetter(v8::Local<v8::String> nam
 {
     INC_STATS("DOM.HTMLObjectElement.contentDocument._get");
     HTMLObjectElement* imp = V8HTMLObjectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     if (!V8BindingSecurity::checkNodeSecurity(V8BindingState::Only(), imp->contentDocument()))
     return v8::Handle<v8::Value>();
 

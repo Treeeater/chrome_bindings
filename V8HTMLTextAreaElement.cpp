@@ -50,6 +50,7 @@ static v8::Handle<v8::Value> defaultValueAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLTextAreaElement.defaultValue._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->defaultValue());
 }
 
@@ -66,6 +67,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLTextAreaElement.form._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -73,6 +75,7 @@ static v8::Handle<v8::Value> validityAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLTextAreaElement.validity._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->validity());
 }
 
@@ -92,6 +95,7 @@ static v8::Handle<v8::Value> colsAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLTextAreaElement.cols._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->cols());
 }
 
@@ -108,6 +112,7 @@ static v8::Handle<v8::Value> disabledAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLTextAreaElement.disabled._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::disabledAttr));
 }
 
@@ -124,6 +129,7 @@ static v8::Handle<v8::Value> autofocusAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLTextAreaElement.autofocus._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::autofocusAttr));
 }
 
@@ -140,6 +146,7 @@ static v8::Handle<v8::Value> maxLengthAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLTextAreaElement.maxLength._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->maxLength());
 }
 
@@ -159,6 +166,7 @@ static v8::Handle<v8::Value> nameAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLTextAreaElement.name._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->name());
 }
 
@@ -187,6 +195,7 @@ static v8::Handle<v8::Value> readOnlyAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLTextAreaElement.readOnly._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::readonlyAttr));
 }
 
@@ -203,6 +212,7 @@ static v8::Handle<v8::Value> requiredAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLTextAreaElement.required._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::requiredAttr));
 }
 
@@ -219,6 +229,7 @@ static v8::Handle<v8::Value> rowsAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLTextAreaElement.rows._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->rows());
 }
 
@@ -235,6 +246,7 @@ static v8::Handle<v8::Value> typeAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLTextAreaElement.type._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->type());
 }
 
@@ -242,6 +254,7 @@ static v8::Handle<v8::Value> valueAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLTextAreaElement.value._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->value());
 }
 
@@ -258,6 +271,7 @@ static v8::Handle<v8::Value> textLengthAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLTextAreaElement.textLength._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::NewFromUnsigned(imp->textLength());
 }
 
@@ -265,6 +279,7 @@ static v8::Handle<v8::Value> willValidateAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLTextAreaElement.willValidate._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->willValidate());
 }
 
@@ -272,6 +287,7 @@ static v8::Handle<v8::Value> validationMessageAttrGetter(v8::Local<v8::String> n
 {
     INC_STATS("DOM.HTMLTextAreaElement.validationMessage._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->validationMessage());
 }
 
@@ -279,6 +295,7 @@ static v8::Handle<v8::Value> selectionStartAttrGetter(v8::Local<v8::String> name
 {
     INC_STATS("DOM.HTMLTextAreaElement.selectionStart._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->selectionStart());
 }
 
@@ -295,6 +312,7 @@ static v8::Handle<v8::Value> selectionEndAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLTextAreaElement.selectionEnd._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->selectionEnd());
 }
 
@@ -311,6 +329,7 @@ static v8::Handle<v8::Value> labelsAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLTextAreaElement.labels._get");
     HTMLTextAreaElement* imp = V8HTMLTextAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->labels());
 }
 

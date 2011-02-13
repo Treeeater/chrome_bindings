@@ -43,6 +43,7 @@ static v8::Handle<v8::Value> labelAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLDataGridColElement.label._get");
     HTMLDataGridColElement* imp = V8HTMLDataGridColElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->label());
 }
 
@@ -59,6 +60,7 @@ static v8::Handle<v8::Value> typeAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLDataGridColElement.type._get");
     HTMLDataGridColElement* imp = V8HTMLDataGridColElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->type());
 }
 
@@ -75,6 +77,7 @@ static v8::Handle<v8::Value> sortableAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLDataGridColElement.sortable._get");
     HTMLDataGridColElement* imp = V8HTMLDataGridColElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->sortable());
 }
 
@@ -91,6 +94,7 @@ static v8::Handle<v8::Value> sortDirectionAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.HTMLDataGridColElement.sortDirection._get");
     HTMLDataGridColElement* imp = V8HTMLDataGridColElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->sortDirection());
 }
 
@@ -107,6 +111,7 @@ static v8::Handle<v8::Value> primaryAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDataGridColElement.primary._get");
     HTMLDataGridColElement* imp = V8HTMLDataGridColElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->primary());
 }
 

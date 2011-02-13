@@ -42,6 +42,7 @@ static v8::Handle<v8::Value> cellIndexAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLTableCellElement.cellIndex._get");
     HTMLTableCellElement* imp = V8HTMLTableCellElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->cellIndex());
 }
 
@@ -121,6 +122,7 @@ static v8::Handle<v8::Value> colSpanAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLTableCellElement.colSpan._get");
     HTMLTableCellElement* imp = V8HTMLTableCellElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->colSpan());
 }
 
@@ -161,6 +163,7 @@ static v8::Handle<v8::Value> noWrapAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLTableCellElement.noWrap._get");
     HTMLTableCellElement* imp = V8HTMLTableCellElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::nowrapAttr));
 }
 
@@ -177,6 +180,7 @@ static v8::Handle<v8::Value> rowSpanAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLTableCellElement.rowSpan._get");
     HTMLTableCellElement* imp = V8HTMLTableCellElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->rowSpan());
 }
 

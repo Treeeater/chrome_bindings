@@ -43,6 +43,7 @@ static v8::Handle<v8::Value> labelAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLDataGridCellElement.label._get");
     HTMLDataGridCellElement* imp = V8HTMLDataGridCellElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->label());
 }
 
@@ -59,6 +60,7 @@ static v8::Handle<v8::Value> focusedAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDataGridCellElement.focused._get");
     HTMLDataGridCellElement* imp = V8HTMLDataGridCellElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->focused());
 }
 
@@ -75,6 +77,7 @@ static v8::Handle<v8::Value> checkedAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDataGridCellElement.checked._get");
     HTMLDataGridCellElement* imp = V8HTMLDataGridCellElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->checked());
 }
 
@@ -91,6 +94,7 @@ static v8::Handle<v8::Value> indeterminateAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.HTMLDataGridCellElement.indeterminate._get");
     HTMLDataGridCellElement* imp = V8HTMLDataGridCellElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->indeterminate());
 }
 
@@ -107,6 +111,7 @@ static v8::Handle<v8::Value> progressAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLDataGridCellElement.progress._get");
     HTMLDataGridCellElement* imp = V8HTMLDataGridCellElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->progress());
 }
 

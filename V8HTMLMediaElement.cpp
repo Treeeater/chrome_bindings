@@ -51,6 +51,7 @@ static v8::Handle<v8::Value> errorAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLMediaElement.error._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->error());
 }
 
@@ -58,6 +59,7 @@ static v8::Handle<v8::Value> srcAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLMediaElement.src._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::srcAttr));
 }
 
@@ -71,6 +73,7 @@ static v8::Handle<v8::Value> currentSrcAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLMediaElement.currentSrc._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->currentSrc());
 }
 
@@ -78,6 +81,7 @@ static v8::Handle<v8::Value> networkStateAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLMediaElement.networkState._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->networkState());
 }
 
@@ -85,6 +89,7 @@ static v8::Handle<v8::Value> preloadAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLMediaElement.preload._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->preload());
 }
 
@@ -101,6 +106,7 @@ static v8::Handle<v8::Value> bufferedAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLMediaElement.buffered._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->buffered());
 }
 
@@ -108,6 +114,7 @@ static v8::Handle<v8::Value> readyStateAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLMediaElement.readyState._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->readyState());
 }
 
@@ -115,6 +122,7 @@ static v8::Handle<v8::Value> seekingAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLMediaElement.seeking._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->seeking());
 }
 
@@ -122,6 +130,7 @@ static v8::Handle<v8::Value> currentTimeAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.HTMLMediaElement.currentTime._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->currentTime());
 }
 
@@ -141,6 +150,7 @@ static v8::Handle<v8::Value> startTimeAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLMediaElement.startTime._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->startTime());
 }
 
@@ -148,6 +158,7 @@ static v8::Handle<v8::Value> durationAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLMediaElement.duration._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->duration());
 }
 
@@ -155,6 +166,7 @@ static v8::Handle<v8::Value> pausedAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLMediaElement.paused._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->paused());
 }
 
@@ -162,6 +174,7 @@ static v8::Handle<v8::Value> defaultPlaybackRateAttrGetter(v8::Local<v8::String>
 {
     INC_STATS("DOM.HTMLMediaElement.defaultPlaybackRate._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->defaultPlaybackRate());
 }
 
@@ -178,6 +191,7 @@ static v8::Handle<v8::Value> playbackRateAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLMediaElement.playbackRate._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->playbackRate());
 }
 
@@ -194,6 +208,7 @@ static v8::Handle<v8::Value> playedAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLMediaElement.played._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->played());
 }
 
@@ -201,6 +216,7 @@ static v8::Handle<v8::Value> seekableAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLMediaElement.seekable._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->seekable());
 }
 
@@ -208,6 +224,7 @@ static v8::Handle<v8::Value> endedAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLMediaElement.ended._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->ended());
 }
 
@@ -215,6 +232,7 @@ static v8::Handle<v8::Value> autoplayAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLMediaElement.autoplay._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::autoplayAttr));
 }
 
@@ -231,6 +249,7 @@ static v8::Handle<v8::Value> loopAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLMediaElement.loop._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::loopAttr));
 }
 
@@ -247,6 +266,7 @@ static v8::Handle<v8::Value> controlsAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLMediaElement.controls._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->controls());
 }
 
@@ -263,6 +283,7 @@ static v8::Handle<v8::Value> volumeAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLMediaElement.volume._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->volume());
 }
 
@@ -282,6 +303,7 @@ static v8::Handle<v8::Value> mutedAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLMediaElement.muted._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->muted());
 }
 
@@ -298,6 +320,7 @@ static v8::Handle<v8::Value> webkitPreservesPitchAttrGetter(v8::Local<v8::String
 {
     INC_STATS("DOM.HTMLMediaElement.webkitPreservesPitch._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->webkitPreservesPitch());
 }
 
@@ -321,6 +344,7 @@ static v8::Handle<v8::Value> webkitClosedCaptionsVisibleAttrGetter(v8::Local<v8:
 {
     INC_STATS("DOM.HTMLMediaElement.webkitClosedCaptionsVisible._get");
     HTMLMediaElement* imp = V8HTMLMediaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->webkitClosedCaptionsVisible());
 }
 

@@ -78,6 +78,7 @@ static v8::Handle<v8::Value> hrefAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLAreaElement.href._get");
     HTMLAreaElement* imp = V8HTMLAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::hrefAttr));
 }
 
@@ -91,6 +92,7 @@ static v8::Handle<v8::Value> noHrefAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLAreaElement.noHref._get");
     HTMLAreaElement* imp = V8HTMLAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::nohrefAttr));
 }
 
@@ -131,6 +133,7 @@ static v8::Handle<v8::Value> hashAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLAreaElement.hash._get");
     HTMLAreaElement* imp = V8HTMLAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->hash());
 }
 
@@ -138,6 +141,7 @@ static v8::Handle<v8::Value> hostAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLAreaElement.host._get");
     HTMLAreaElement* imp = V8HTMLAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->host());
 }
 
@@ -145,6 +149,7 @@ static v8::Handle<v8::Value> hostnameAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLAreaElement.hostname._get");
     HTMLAreaElement* imp = V8HTMLAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->hostname());
 }
 
@@ -152,6 +157,7 @@ static v8::Handle<v8::Value> pathnameAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLAreaElement.pathname._get");
     HTMLAreaElement* imp = V8HTMLAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->pathname());
 }
 
@@ -159,6 +165,7 @@ static v8::Handle<v8::Value> portAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLAreaElement.port._get");
     HTMLAreaElement* imp = V8HTMLAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->port());
 }
 
@@ -166,6 +173,7 @@ static v8::Handle<v8::Value> protocolAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLAreaElement.protocol._get");
     HTMLAreaElement* imp = V8HTMLAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->protocol());
 }
 
@@ -173,6 +181,7 @@ static v8::Handle<v8::Value> searchAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLAreaElement.search._get");
     HTMLAreaElement* imp = V8HTMLAreaElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->search());
 }
 

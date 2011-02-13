@@ -42,6 +42,7 @@ static v8::Handle<v8::Value> compactAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLOListElement.compact._get");
     HTMLOListElement* imp = V8HTMLOListElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::compactAttr));
 }
 
@@ -58,6 +59,7 @@ static v8::Handle<v8::Value> startAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLOListElement.start._get");
     HTMLOListElement* imp = V8HTMLOListElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->start());
 }
 

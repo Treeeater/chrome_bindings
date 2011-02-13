@@ -42,6 +42,7 @@ static v8::Handle<v8::Value> compactAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDirectoryElement.compact._get");
     HTMLDirectoryElement* imp = V8HTMLDirectoryElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::compactAttr));
 }
 

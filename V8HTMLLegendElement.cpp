@@ -43,6 +43,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLLegendElement.form._get");
     HTMLLegendElement* imp = V8HTMLLegendElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 

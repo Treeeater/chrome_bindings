@@ -90,6 +90,7 @@ static v8::Handle<v8::Value> heightAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLImageElement.height._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->height());
 }
 
@@ -106,6 +107,7 @@ static v8::Handle<v8::Value> hspaceAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLImageElement.hspace._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->getIntegralAttribute(WebCore::HTMLNames::hspaceAttr));
 }
 
@@ -122,6 +124,7 @@ static v8::Handle<v8::Value> isMapAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLImageElement.isMap._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::ismapAttr));
 }
 
@@ -138,6 +141,7 @@ static v8::Handle<v8::Value> longDescAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLImageElement.longDesc._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::longdescAttr));
 }
 
@@ -151,6 +155,7 @@ static v8::Handle<v8::Value> srcAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLImageElement.src._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::srcAttr));
 }
 
@@ -176,6 +181,7 @@ static v8::Handle<v8::Value> vspaceAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLImageElement.vspace._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->getIntegralAttribute(WebCore::HTMLNames::vspaceAttr));
 }
 
@@ -192,6 +198,7 @@ static v8::Handle<v8::Value> widthAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLImageElement.width._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->width());
 }
 
@@ -208,6 +215,7 @@ static v8::Handle<v8::Value> completeAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLImageElement.complete._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->complete());
 }
 
@@ -215,6 +223,7 @@ static v8::Handle<v8::Value> lowsrcAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLImageElement.lowsrc._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::lowsrcAttr));
 }
 
@@ -228,6 +237,7 @@ static v8::Handle<v8::Value> naturalHeightAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.HTMLImageElement.naturalHeight._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->naturalHeight());
 }
 
@@ -235,6 +245,7 @@ static v8::Handle<v8::Value> naturalWidthAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLImageElement.naturalWidth._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->naturalWidth());
 }
 
@@ -242,6 +253,7 @@ static v8::Handle<v8::Value> xAttrGetter(v8::Local<v8::String> name, const v8::A
 {
     INC_STATS("DOM.HTMLImageElement.x._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->x());
 }
 
@@ -249,6 +261,7 @@ static v8::Handle<v8::Value> yAttrGetter(v8::Local<v8::String> name, const v8::A
 {
     INC_STATS("DOM.HTMLImageElement.y._get");
     HTMLImageElement* imp = V8HTMLImageElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->y());
 }
 

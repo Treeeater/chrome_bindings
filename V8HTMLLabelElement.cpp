@@ -43,6 +43,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLLabelElement.form._get");
     HTMLLabelElement* imp = V8HTMLLabelElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -74,6 +75,7 @@ static v8::Handle<v8::Value> controlAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLLabelElement.control._get");
     HTMLLabelElement* imp = V8HTMLLabelElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->control());
 }
 

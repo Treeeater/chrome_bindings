@@ -41,6 +41,7 @@ static v8::Handle<v8::Value> widthAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLCanvasElement.width._get");
     HTMLCanvasElement* imp = V8HTMLCanvasElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->width());
 }
 
@@ -57,6 +58,7 @@ static v8::Handle<v8::Value> heightAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLCanvasElement.height._get");
     HTMLCanvasElement* imp = V8HTMLCanvasElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->height());
 }
 

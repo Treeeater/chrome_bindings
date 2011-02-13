@@ -49,6 +49,7 @@ static v8::Handle<v8::Value> valueAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLMeterElement.value._get");
     HTMLMeterElement* imp = V8HTMLMeterElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->value());
 }
 
@@ -68,6 +69,7 @@ static v8::Handle<v8::Value> minAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLMeterElement.min._get");
     HTMLMeterElement* imp = V8HTMLMeterElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->min());
 }
 
@@ -87,6 +89,7 @@ static v8::Handle<v8::Value> maxAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLMeterElement.max._get");
     HTMLMeterElement* imp = V8HTMLMeterElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->max());
 }
 
@@ -106,6 +109,7 @@ static v8::Handle<v8::Value> lowAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLMeterElement.low._get");
     HTMLMeterElement* imp = V8HTMLMeterElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->low());
 }
 
@@ -125,6 +129,7 @@ static v8::Handle<v8::Value> highAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLMeterElement.high._get");
     HTMLMeterElement* imp = V8HTMLMeterElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->high());
 }
 
@@ -144,6 +149,7 @@ static v8::Handle<v8::Value> optimumAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLMeterElement.optimum._get");
     HTMLMeterElement* imp = V8HTMLMeterElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->optimum());
 }
 
@@ -163,6 +169,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLMeterElement.form._get");
     HTMLMeterElement* imp = V8HTMLMeterElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -170,6 +177,7 @@ static v8::Handle<v8::Value> labelsAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLMeterElement.labels._get");
     HTMLMeterElement* imp = V8HTMLMeterElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->labels());
 }
 

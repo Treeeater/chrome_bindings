@@ -42,6 +42,7 @@ static v8::Handle<v8::Value> disabledAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLOptGroupElement.disabled._get");
     HTMLOptGroupElement* imp = V8HTMLOptGroupElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::disabledAttr));
 }
 

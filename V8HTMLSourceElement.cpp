@@ -44,6 +44,7 @@ static v8::Handle<v8::Value> srcAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLSourceElement.src._get");
     HTMLSourceElement* imp = V8HTMLSourceElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::srcAttr));
 }
 
@@ -57,6 +58,7 @@ static v8::Handle<v8::Value> typeAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLSourceElement.type._get");
     HTMLSourceElement* imp = V8HTMLSourceElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->type());
 }
 
@@ -73,6 +75,7 @@ static v8::Handle<v8::Value> mediaAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLSourceElement.media._get");
     HTMLSourceElement* imp = V8HTMLSourceElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->media());
 }
 

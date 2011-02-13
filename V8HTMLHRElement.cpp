@@ -54,6 +54,7 @@ static v8::Handle<v8::Value> noShadeAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLHRElement.noShade._get");
     HTMLHRElement* imp = V8HTMLHRElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::noshadeAttr));
 }
 

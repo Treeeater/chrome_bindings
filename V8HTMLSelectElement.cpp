@@ -53,6 +53,7 @@ static v8::Handle<v8::Value> typeAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLSelectElement.type._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->type());
 }
 
@@ -60,6 +61,7 @@ static v8::Handle<v8::Value> selectedIndexAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.HTMLSelectElement.selectedIndex._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->selectedIndex());
 }
 
@@ -76,6 +78,7 @@ static v8::Handle<v8::Value> valueAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLSelectElement.value._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->value());
 }
 
@@ -92,6 +95,7 @@ static v8::Handle<v8::Value> lengthAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLSelectElement.length._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::NewFromUnsigned(imp->length());
 }
 
@@ -111,6 +115,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLSelectElement.form._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -118,6 +123,7 @@ static v8::Handle<v8::Value> validityAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLSelectElement.validity._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->validity());
 }
 
@@ -125,6 +131,7 @@ static v8::Handle<v8::Value> willValidateAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLSelectElement.willValidate._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->willValidate());
 }
 
@@ -132,6 +139,7 @@ static v8::Handle<v8::Value> validationMessageAttrGetter(v8::Local<v8::String> n
 {
     INC_STATS("DOM.HTMLSelectElement.validationMessage._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->validationMessage());
 }
 
@@ -139,6 +147,7 @@ static v8::Handle<v8::Value> optionsAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLSelectElement.options._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->options());
 }
 
@@ -146,6 +155,7 @@ static v8::Handle<v8::Value> disabledAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLSelectElement.disabled._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::disabledAttr));
 }
 
@@ -162,6 +172,7 @@ static v8::Handle<v8::Value> autofocusAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLSelectElement.autofocus._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::autofocusAttr));
 }
 
@@ -178,6 +189,7 @@ static v8::Handle<v8::Value> multipleAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLSelectElement.multiple._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->multiple());
 }
 
@@ -194,6 +206,7 @@ static v8::Handle<v8::Value> nameAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLSelectElement.name._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->name());
 }
 
@@ -210,6 +223,7 @@ static v8::Handle<v8::Value> sizeAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLSelectElement.size._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->size());
 }
 
@@ -226,6 +240,7 @@ static v8::Handle<v8::Value> labelsAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLSelectElement.labels._get");
     HTMLSelectElement* imp = V8HTMLSelectElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->labels());
 }
 

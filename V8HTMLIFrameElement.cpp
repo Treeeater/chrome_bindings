@@ -181,6 +181,7 @@ static v8::Handle<v8::Value> contentDocumentAttrGetter(v8::Local<v8::String> nam
 {
     INC_STATS("DOM.HTMLIFrameElement.contentDocument._get");
     HTMLIFrameElement* imp = V8HTMLIFrameElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     if (!V8BindingSecurity::checkNodeSecurity(V8BindingState::Only(), imp->contentDocument()))
     return v8::Handle<v8::Value>();
 
@@ -191,6 +192,7 @@ static v8::Handle<v8::Value> contentWindowAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.HTMLIFrameElement.contentWindow._get");
     HTMLIFrameElement* imp = V8HTMLIFrameElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->contentWindow());
 }
 

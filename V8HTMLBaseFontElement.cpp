@@ -66,6 +66,7 @@ static v8::Handle<v8::Value> sizeAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLBaseFontElement.size._get");
     HTMLBaseFontElement* imp = V8HTMLBaseFontElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->getIntegralAttribute(WebCore::HTMLNames::sizeAttr));
 }
 

@@ -47,6 +47,7 @@ static v8::Handle<v8::Value> elementsAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLFormElement.elements._get");
     HTMLFormElement* imp = V8HTMLFormElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->elements());
 }
 
@@ -54,6 +55,7 @@ static v8::Handle<v8::Value> lengthAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLFormElement.length._get");
     HTMLFormElement* imp = V8HTMLFormElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->length());
 }
 
@@ -73,6 +75,7 @@ static v8::Handle<v8::Value> noValidateAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLFormElement.noValidate._get");
     HTMLFormElement* imp = V8HTMLFormElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::novalidateAttr));
 }
 
@@ -113,6 +116,7 @@ static v8::Handle<v8::Value> encodingAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLFormElement.encoding._get");
     HTMLFormElement* imp = V8HTMLFormElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->encoding());
 }
 
@@ -129,6 +133,7 @@ static v8::Handle<v8::Value> enctypeAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLFormElement.enctype._get");
     HTMLFormElement* imp = V8HTMLFormElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->enctype());
 }
 

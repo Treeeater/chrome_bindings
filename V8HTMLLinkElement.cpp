@@ -46,6 +46,7 @@ static v8::Handle<v8::Value> disabledAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLLinkElement.disabled._get");
     HTMLLinkElement* imp = V8HTMLLinkElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::disabledAttr));
 }
 
@@ -74,6 +75,7 @@ static v8::Handle<v8::Value> hrefAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLLinkElement.href._get");
     HTMLLinkElement* imp = V8HTMLLinkElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::hrefAttr));
 }
 
@@ -159,6 +161,7 @@ static v8::Handle<v8::Value> sheetAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLLinkElement.sheet._get");
     HTMLLinkElement* imp = V8HTMLLinkElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->sheet());
 }
 

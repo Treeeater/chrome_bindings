@@ -44,6 +44,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLOptionElement.form._get");
     HTMLOptionElement* imp = V8HTMLOptionElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -51,6 +52,7 @@ static v8::Handle<v8::Value> defaultSelectedAttrGetter(v8::Local<v8::String> nam
 {
     INC_STATS("DOM.HTMLOptionElement.defaultSelected._get");
     HTMLOptionElement* imp = V8HTMLOptionElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::selectedAttr));
 }
 
@@ -67,6 +69,7 @@ static v8::Handle<v8::Value> textAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLOptionElement.text._get");
     HTMLOptionElement* imp = V8HTMLOptionElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->text());
 }
 
@@ -86,6 +89,7 @@ static v8::Handle<v8::Value> indexAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLOptionElement.index._get");
     HTMLOptionElement* imp = V8HTMLOptionElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->index());
 }
 
@@ -93,6 +97,7 @@ static v8::Handle<v8::Value> disabledAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLOptionElement.disabled._get");
     HTMLOptionElement* imp = V8HTMLOptionElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::disabledAttr));
 }
 
@@ -121,6 +126,7 @@ static v8::Handle<v8::Value> selectedAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLOptionElement.selected._get");
     HTMLOptionElement* imp = V8HTMLOptionElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->selected());
 }
 
@@ -137,6 +143,7 @@ static v8::Handle<v8::Value> valueAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLOptionElement.value._get");
     HTMLOptionElement* imp = V8HTMLOptionElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->value());
 }
 

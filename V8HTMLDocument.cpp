@@ -46,6 +46,7 @@ static v8::Handle<v8::Value> embedsAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLDocument.embeds._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->embeds());
 }
 
@@ -53,6 +54,7 @@ static v8::Handle<v8::Value> pluginsAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDocument.plugins._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->plugins());
 }
 
@@ -60,6 +62,7 @@ static v8::Handle<v8::Value> scriptsAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDocument.scripts._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->scripts());
 }
 
@@ -67,6 +70,7 @@ static v8::Handle<v8::Value> widthAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLDocument.width._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->width());
 }
 
@@ -74,6 +78,7 @@ static v8::Handle<v8::Value> heightAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLDocument.height._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->height());
 }
 
@@ -81,6 +86,7 @@ static v8::Handle<v8::Value> dirAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLDocument.dir._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->dir());
 }
 
@@ -97,6 +103,7 @@ static v8::Handle<v8::Value> designModeAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLDocument.designMode._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->designMode());
 }
 
@@ -113,6 +120,7 @@ static v8::Handle<v8::Value> compatModeAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLDocument.compatMode._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->compatMode());
 }
 
@@ -120,6 +128,7 @@ static v8::Handle<v8::Value> activeElementAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.HTMLDocument.activeElement._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->activeElement());
 }
 
@@ -127,6 +136,7 @@ static v8::Handle<v8::Value> bgColorAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDocument.bgColor._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->bgColor());
 }
 
@@ -143,6 +153,7 @@ static v8::Handle<v8::Value> fgColorAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDocument.fgColor._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->fgColor());
 }
 
@@ -159,6 +170,7 @@ static v8::Handle<v8::Value> alinkColorAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLDocument.alinkColor._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->alinkColor());
 }
 
@@ -175,6 +187,7 @@ static v8::Handle<v8::Value> linkColorAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLDocument.linkColor._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->linkColor());
 }
 
@@ -191,6 +204,7 @@ static v8::Handle<v8::Value> vlinkColorAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLDocument.vlinkColor._get");
     HTMLDocument* imp = V8HTMLDocument::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->vlinkColor());
 }
 

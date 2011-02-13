@@ -48,6 +48,7 @@ static v8::Handle<v8::Value> rowIndexAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLTableRowElement.rowIndex._get");
     HTMLTableRowElement* imp = V8HTMLTableRowElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->rowIndex());
 }
 
@@ -55,6 +56,7 @@ static v8::Handle<v8::Value> sectionRowIndexAttrGetter(v8::Local<v8::String> nam
 {
     INC_STATS("DOM.HTMLTableRowElement.sectionRowIndex._get");
     HTMLTableRowElement* imp = V8HTMLTableRowElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->sectionRowIndex());
 }
 
@@ -62,6 +64,7 @@ static v8::Handle<v8::Value> cellsAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLTableRowElement.cells._get");
     HTMLTableRowElement* imp = V8HTMLTableRowElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->cells());
 }
 

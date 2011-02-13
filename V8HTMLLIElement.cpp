@@ -54,6 +54,7 @@ static v8::Handle<v8::Value> valueAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLLIElement.value._get");
     HTMLLIElement* imp = V8HTMLLIElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->getIntegralAttribute(WebCore::HTMLNames::valueAttr));
 }
 

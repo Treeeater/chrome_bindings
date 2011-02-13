@@ -109,6 +109,7 @@ static v8::Handle<v8::Value> noResizeAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLFrameElement.noResize._get");
     HTMLFrameElement* imp = V8HTMLFrameElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::noresizeAttr));
 }
 
@@ -137,6 +138,7 @@ static v8::Handle<v8::Value> srcAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLFrameElement.src._get");
     HTMLFrameElement* imp = V8HTMLFrameElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::srcAttr));
 }
 
@@ -150,6 +152,7 @@ static v8::Handle<v8::Value> contentDocumentAttrGetter(v8::Local<v8::String> nam
 {
     INC_STATS("DOM.HTMLFrameElement.contentDocument._get");
     HTMLFrameElement* imp = V8HTMLFrameElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     if (!V8BindingSecurity::checkNodeSecurity(V8BindingState::Only(), imp->contentDocument()))
     return v8::Handle<v8::Value>();
 
@@ -160,6 +163,7 @@ static v8::Handle<v8::Value> contentWindowAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.HTMLFrameElement.contentWindow._get");
     HTMLFrameElement* imp = V8HTMLFrameElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->contentWindow());
 }
 
@@ -167,6 +171,7 @@ static v8::Handle<v8::Value> locationAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLFrameElement.location._get");
     HTMLFrameElement* imp = V8HTMLFrameElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->location());
 }
 
@@ -174,6 +179,7 @@ static v8::Handle<v8::Value> widthAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLFrameElement.width._get");
     HTMLFrameElement* imp = V8HTMLFrameElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->width());
 }
 
@@ -181,6 +187,7 @@ static v8::Handle<v8::Value> heightAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLFrameElement.height._get");
     HTMLFrameElement* imp = V8HTMLFrameElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->height());
 }
 

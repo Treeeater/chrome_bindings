@@ -49,6 +49,7 @@ static v8::Handle<v8::Value> valueAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLProgressElement.value._get");
     HTMLProgressElement* imp = V8HTMLProgressElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->value());
 }
 
@@ -68,6 +69,7 @@ static v8::Handle<v8::Value> maxAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLProgressElement.max._get");
     HTMLProgressElement* imp = V8HTMLProgressElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->max());
 }
 
@@ -87,6 +89,7 @@ static v8::Handle<v8::Value> positionAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLProgressElement.position._get");
     HTMLProgressElement* imp = V8HTMLProgressElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->position());
 }
 
@@ -94,6 +97,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLProgressElement.form._get");
     HTMLProgressElement* imp = V8HTMLProgressElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -101,6 +105,7 @@ static v8::Handle<v8::Value> labelsAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLProgressElement.labels._get");
     HTMLProgressElement* imp = V8HTMLProgressElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->labels());
 }
 

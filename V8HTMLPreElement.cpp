@@ -42,6 +42,7 @@ static v8::Handle<v8::Value> widthAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLPreElement.width._get");
     HTMLPreElement* imp = V8HTMLPreElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->getIntegralAttribute(WebCore::HTMLNames::widthAttr));
 }
 
@@ -58,6 +59,7 @@ static v8::Handle<v8::Value> wrapAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLPreElement.wrap._get");
     HTMLPreElement* imp = V8HTMLPreElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::wrapAttr));
 }
 

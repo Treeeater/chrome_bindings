@@ -51,6 +51,7 @@ static v8::Handle<v8::Value> defaultValueAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLInputElement.defaultValue._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->defaultValue());
 }
 
@@ -67,6 +68,7 @@ static v8::Handle<v8::Value> defaultCheckedAttrGetter(v8::Local<v8::String> name
 {
     INC_STATS("DOM.HTMLInputElement.defaultChecked._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::checkedAttr));
 }
 
@@ -83,6 +85,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLInputElement.form._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -90,6 +93,7 @@ static v8::Handle<v8::Value> formNoValidateAttrGetter(v8::Local<v8::String> name
 {
     INC_STATS("DOM.HTMLInputElement.formNoValidate._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::formnovalidateAttr));
 }
 
@@ -106,6 +110,7 @@ static v8::Handle<v8::Value> validityAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLInputElement.validity._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->validity());
 }
 
@@ -161,6 +166,7 @@ static v8::Handle<v8::Value> checkedAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLInputElement.checked._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->checked());
 }
 
@@ -177,6 +183,7 @@ static v8::Handle<v8::Value> disabledAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLInputElement.disabled._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::disabledAttr));
 }
 
@@ -193,6 +200,7 @@ static v8::Handle<v8::Value> autofocusAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLInputElement.autofocus._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::autofocusAttr));
 }
 
@@ -221,6 +229,7 @@ static v8::Handle<v8::Value> maxLengthAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLInputElement.maxLength._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->maxLength());
 }
 
@@ -252,6 +261,7 @@ static v8::Handle<v8::Value> multipleAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLInputElement.multiple._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::multipleAttr));
 }
 
@@ -268,6 +278,7 @@ static v8::Handle<v8::Value> webkitdirectoryAttrGetter(v8::Local<v8::String> nam
 {
     INC_STATS("DOM.HTMLInputElement.webkitdirectory._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::webkitdirectoryAttr));
 }
 
@@ -320,6 +331,7 @@ static v8::Handle<v8::Value> readOnlyAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLInputElement.readOnly._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::readonlyAttr));
 }
 
@@ -336,6 +348,7 @@ static v8::Handle<v8::Value> requiredAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLInputElement.required._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::requiredAttr));
 }
 
@@ -352,6 +365,7 @@ static v8::Handle<v8::Value> sizeAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLInputElement.size._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::NewFromUnsigned(imp->size());
 }
 
@@ -368,6 +382,7 @@ static v8::Handle<v8::Value> srcAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLInputElement.src._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::srcAttr));
 }
 
@@ -393,6 +408,7 @@ static v8::Handle<v8::Value> typeAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLInputElement.type._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->type());
 }
 
@@ -421,6 +437,7 @@ static v8::Handle<v8::Value> valueAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLInputElement.value._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->value());
 }
 
@@ -437,6 +454,7 @@ static v8::Handle<v8::Value> valueAsDateAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.HTMLInputElement.valueAsDate._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8DateOrNull(imp->valueAsDate());
 }
 
@@ -456,6 +474,7 @@ static v8::Handle<v8::Value> valueAsNumberAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.HTMLInputElement.valueAsNumber._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Number::New(imp->valueAsNumber());
 }
 
@@ -475,6 +494,7 @@ static v8::Handle<v8::Value> willValidateAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLInputElement.willValidate._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->willValidate());
 }
 
@@ -482,6 +502,7 @@ static v8::Handle<v8::Value> validationMessageAttrGetter(v8::Local<v8::String> n
 {
     INC_STATS("DOM.HTMLInputElement.validationMessage._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->validationMessage());
 }
 
@@ -489,6 +510,7 @@ static v8::Handle<v8::Value> indeterminateAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.HTMLInputElement.indeterminate._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->indeterminate());
 }
 
@@ -505,6 +527,7 @@ static v8::Handle<v8::Value> filesAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLInputElement.files._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->files());
 }
 
@@ -512,6 +535,7 @@ static v8::Handle<v8::Value> labelsAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLInputElement.labels._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->labels());
 }
 
@@ -519,6 +543,7 @@ static v8::Handle<v8::Value> speechAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLInputElement.speech._get");
     HTMLInputElement* imp = V8HTMLInputElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::speechAttr));
 }
 

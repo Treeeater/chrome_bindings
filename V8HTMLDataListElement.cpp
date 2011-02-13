@@ -47,6 +47,7 @@ static v8::Handle<v8::Value> optionsAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDataListElement.options._get");
     HTMLDataListElement* imp = V8HTMLDataListElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->options());
 }
 

@@ -50,6 +50,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLButtonElement.form._get");
     HTMLButtonElement* imp = V8HTMLButtonElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -57,6 +58,7 @@ static v8::Handle<v8::Value> formNoValidateAttrGetter(v8::Local<v8::String> name
 {
     INC_STATS("DOM.HTMLButtonElement.formNoValidate._get");
     HTMLButtonElement* imp = V8HTMLButtonElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::formnovalidateAttr));
 }
 
@@ -73,6 +75,7 @@ static v8::Handle<v8::Value> validityAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLButtonElement.validity._get");
     HTMLButtonElement* imp = V8HTMLButtonElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->validity());
 }
 
@@ -92,6 +95,7 @@ static v8::Handle<v8::Value> disabledAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLButtonElement.disabled._get");
     HTMLButtonElement* imp = V8HTMLButtonElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::disabledAttr));
 }
 
@@ -108,6 +112,7 @@ static v8::Handle<v8::Value> autofocusAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLButtonElement.autofocus._get");
     HTMLButtonElement* imp = V8HTMLButtonElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::autofocusAttr));
 }
 
@@ -136,6 +141,7 @@ static v8::Handle<v8::Value> typeAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLButtonElement.type._get");
     HTMLButtonElement* imp = V8HTMLButtonElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->type());
 }
 
@@ -155,6 +161,7 @@ static v8::Handle<v8::Value> willValidateAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLButtonElement.willValidate._get");
     HTMLButtonElement* imp = V8HTMLButtonElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->willValidate());
 }
 
@@ -162,6 +169,7 @@ static v8::Handle<v8::Value> validationMessageAttrGetter(v8::Local<v8::String> n
 {
     INC_STATS("DOM.HTMLButtonElement.validationMessage._get");
     HTMLButtonElement* imp = V8HTMLButtonElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->validationMessage());
 }
 
@@ -169,6 +177,7 @@ static v8::Handle<v8::Value> labelsAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLButtonElement.labels._get");
     HTMLButtonElement* imp = V8HTMLButtonElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->labels());
 }
 

@@ -42,6 +42,7 @@ static v8::Handle<v8::Value> textAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLScriptElement.text._get");
     HTMLScriptElement* imp = V8HTMLScriptElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->text());
 }
 
@@ -94,6 +95,7 @@ static v8::Handle<v8::Value> asyncAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLScriptElement.async._get");
     HTMLScriptElement* imp = V8HTMLScriptElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::asyncAttr));
 }
 
@@ -110,6 +112,7 @@ static v8::Handle<v8::Value> deferAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLScriptElement.defer._get");
     HTMLScriptElement* imp = V8HTMLScriptElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::deferAttr));
 }
 
@@ -126,6 +129,7 @@ static v8::Handle<v8::Value> srcAttrGetter(v8::Local<v8::String> name, const v8:
 {
     INC_STATS("DOM.HTMLScriptElement.src._get");
     HTMLScriptElement* imp = V8HTMLScriptElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::srcAttr));
 }
 

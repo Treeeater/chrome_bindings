@@ -78,6 +78,7 @@ static v8::Handle<v8::Value> spanAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLTableColElement.span._get");
     HTMLTableColElement* imp = V8HTMLTableColElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->span());
 }
 

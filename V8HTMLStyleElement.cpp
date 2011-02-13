@@ -46,6 +46,7 @@ static v8::Handle<v8::Value> disabledAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLStyleElement.disabled._get");
     HTMLStyleElement* imp = V8HTMLStyleElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::disabledAttr));
 }
 
@@ -86,6 +87,7 @@ static v8::Handle<v8::Value> sheetAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLStyleElement.sheet._get");
     HTMLStyleElement* imp = V8HTMLStyleElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->sheet());
 }
 

@@ -41,6 +41,7 @@ static v8::Handle<v8::Value> textAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLTitleElement.text._get");
     HTMLTitleElement* imp = V8HTMLTitleElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->text());
 }
 

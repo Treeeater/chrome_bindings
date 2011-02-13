@@ -96,6 +96,7 @@ static v8::Handle<v8::Value> rowsAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLTableSectionElement.rows._get");
     HTMLTableSectionElement* imp = V8HTMLTableSectionElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->rows());
 }
 

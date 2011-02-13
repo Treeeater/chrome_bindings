@@ -43,6 +43,7 @@ static v8::Handle<v8::Value> selectedAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLDataGridRowElement.selected._get");
     HTMLDataGridRowElement* imp = V8HTMLDataGridRowElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->selected());
 }
 
@@ -59,6 +60,7 @@ static v8::Handle<v8::Value> focusedAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDataGridRowElement.focused._get");
     HTMLDataGridRowElement* imp = V8HTMLDataGridRowElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->focused());
 }
 
@@ -75,6 +77,7 @@ static v8::Handle<v8::Value> expandedAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLDataGridRowElement.expanded._get");
     HTMLDataGridRowElement* imp = V8HTMLDataGridRowElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->expanded());
 }
 

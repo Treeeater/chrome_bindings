@@ -48,6 +48,7 @@ static v8::Handle<v8::Value> formAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLFieldSetElement.form._get");
     HTMLFieldSetElement* imp = V8HTMLFieldSetElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->form());
 }
 
@@ -55,6 +56,7 @@ static v8::Handle<v8::Value> validityAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLFieldSetElement.validity._get");
     HTMLFieldSetElement* imp = V8HTMLFieldSetElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->validity());
 }
 
@@ -62,6 +64,7 @@ static v8::Handle<v8::Value> willValidateAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLFieldSetElement.willValidate._get");
     HTMLFieldSetElement* imp = V8HTMLFieldSetElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->willValidate());
 }
 
@@ -69,6 +72,7 @@ static v8::Handle<v8::Value> validationMessageAttrGetter(v8::Local<v8::String> n
 {
     INC_STATS("DOM.HTMLFieldSetElement.validationMessage._get");
     HTMLFieldSetElement* imp = V8HTMLFieldSetElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->validationMessage());
 }
 

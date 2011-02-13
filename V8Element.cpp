@@ -54,6 +54,7 @@ static v8::Handle<v8::Value> tagNameAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.Element.tagName._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8StringOrNull(imp->tagName());
 }
 
@@ -61,6 +62,7 @@ static v8::Handle<v8::Value> styleAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.Element.style._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->style());
 }
 
@@ -68,6 +70,7 @@ static v8::Handle<v8::Value> offsetLeftAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.Element.offsetLeft._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->offsetLeft());
 }
 
@@ -75,6 +78,7 @@ static v8::Handle<v8::Value> offsetTopAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.Element.offsetTop._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->offsetTop());
 }
 
@@ -82,6 +86,7 @@ static v8::Handle<v8::Value> offsetWidthAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.offsetWidth._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->offsetWidth());
 }
 
@@ -89,6 +94,7 @@ static v8::Handle<v8::Value> offsetHeightAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.Element.offsetHeight._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->offsetHeight());
 }
 
@@ -96,6 +102,7 @@ static v8::Handle<v8::Value> offsetParentAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.Element.offsetParent._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->offsetParent());
 }
 
@@ -103,6 +110,7 @@ static v8::Handle<v8::Value> clientLeftAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.Element.clientLeft._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->clientLeft());
 }
 
@@ -110,6 +118,7 @@ static v8::Handle<v8::Value> clientTopAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.Element.clientTop._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->clientTop());
 }
 
@@ -117,6 +126,7 @@ static v8::Handle<v8::Value> clientWidthAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.clientWidth._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->clientWidth());
 }
 
@@ -124,6 +134,7 @@ static v8::Handle<v8::Value> clientHeightAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.Element.clientHeight._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->clientHeight());
 }
 
@@ -131,6 +142,7 @@ static v8::Handle<v8::Value> scrollLeftAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.Element.scrollLeft._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->scrollLeft());
 }
 
@@ -147,6 +159,7 @@ static v8::Handle<v8::Value> scrollTopAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.Element.scrollTop._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->scrollTop());
 }
 
@@ -163,6 +176,7 @@ static v8::Handle<v8::Value> scrollWidthAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.scrollWidth._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->scrollWidth());
 }
 
@@ -170,6 +184,7 @@ static v8::Handle<v8::Value> scrollHeightAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.Element.scrollHeight._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->scrollHeight());
 }
 
@@ -177,6 +192,7 @@ static v8::Handle<v8::Value> firstElementChildAttrGetter(v8::Local<v8::String> n
 {
     INC_STATS("DOM.Element.firstElementChild._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->firstElementChild());
 }
 
@@ -184,6 +200,7 @@ static v8::Handle<v8::Value> lastElementChildAttrGetter(v8::Local<v8::String> na
 {
     INC_STATS("DOM.Element.lastElementChild._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->lastElementChild());
 }
 
@@ -191,6 +208,7 @@ static v8::Handle<v8::Value> previousElementSiblingAttrGetter(v8::Local<v8::Stri
 {
     INC_STATS("DOM.Element.previousElementSibling._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->previousElementSibling());
 }
 
@@ -198,6 +216,7 @@ static v8::Handle<v8::Value> nextElementSiblingAttrGetter(v8::Local<v8::String> 
 {
     INC_STATS("DOM.Element.nextElementSibling._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->nextElementSibling());
 }
 
@@ -205,6 +224,7 @@ static v8::Handle<v8::Value> childElementCountAttrGetter(v8::Local<v8::String> n
 {
     INC_STATS("DOM.Element.childElementCount._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::NewFromUnsigned(imp->childElementCount());
 }
 
@@ -212,6 +232,7 @@ static v8::Handle<v8::Value> onabortAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.Element.onabort._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onabort() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onabort())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -229,6 +250,7 @@ static v8::Handle<v8::Value> onblurAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.Element.onblur._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onblur() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onblur())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -246,6 +268,7 @@ static v8::Handle<v8::Value> onchangeAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.Element.onchange._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onchange() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onchange())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -263,6 +286,7 @@ static v8::Handle<v8::Value> onclickAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.Element.onclick._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onclick() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onclick())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -280,6 +304,7 @@ static v8::Handle<v8::Value> oncontextmenuAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.Element.oncontextmenu._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->oncontextmenu() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->oncontextmenu())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -297,6 +322,7 @@ static v8::Handle<v8::Value> ondblclickAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.Element.ondblclick._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ondblclick() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ondblclick())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -314,6 +340,7 @@ static v8::Handle<v8::Value> ondragAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.Element.ondrag._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ondrag() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ondrag())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -331,6 +358,7 @@ static v8::Handle<v8::Value> ondragendAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.Element.ondragend._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ondragend() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ondragend())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -348,6 +376,7 @@ static v8::Handle<v8::Value> ondragenterAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.ondragenter._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ondragenter() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ondragenter())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -365,6 +394,7 @@ static v8::Handle<v8::Value> ondragleaveAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.ondragleave._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ondragleave() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ondragleave())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -382,6 +412,7 @@ static v8::Handle<v8::Value> ondragoverAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.Element.ondragover._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ondragover() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ondragover())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -399,6 +430,7 @@ static v8::Handle<v8::Value> ondragstartAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.ondragstart._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ondragstart() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ondragstart())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -416,6 +448,7 @@ static v8::Handle<v8::Value> ondropAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.Element.ondrop._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ondrop() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ondrop())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -433,6 +466,7 @@ static v8::Handle<v8::Value> onerrorAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.Element.onerror._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onerror() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onerror())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -450,6 +484,7 @@ static v8::Handle<v8::Value> onfocusAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.Element.onfocus._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onfocus() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onfocus())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -467,6 +502,7 @@ static v8::Handle<v8::Value> oninputAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.Element.oninput._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->oninput() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->oninput())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -484,6 +520,7 @@ static v8::Handle<v8::Value> oninvalidAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.Element.oninvalid._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->oninvalid() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->oninvalid())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -501,6 +538,7 @@ static v8::Handle<v8::Value> onkeydownAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.Element.onkeydown._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onkeydown() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onkeydown())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -518,6 +556,7 @@ static v8::Handle<v8::Value> onkeypressAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.Element.onkeypress._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onkeypress() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onkeypress())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -535,6 +574,7 @@ static v8::Handle<v8::Value> onkeyupAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.Element.onkeyup._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onkeyup() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onkeyup())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -552,6 +592,7 @@ static v8::Handle<v8::Value> onloadAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.Element.onload._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onload() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onload())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -569,6 +610,7 @@ static v8::Handle<v8::Value> onmousedownAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.onmousedown._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onmousedown() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onmousedown())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -586,6 +628,7 @@ static v8::Handle<v8::Value> onmousemoveAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.onmousemove._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onmousemove() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onmousemove())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -603,6 +646,7 @@ static v8::Handle<v8::Value> onmouseoutAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.Element.onmouseout._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onmouseout() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onmouseout())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -620,6 +664,7 @@ static v8::Handle<v8::Value> onmouseoverAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.onmouseover._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onmouseover() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onmouseover())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -637,6 +682,7 @@ static v8::Handle<v8::Value> onmouseupAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.Element.onmouseup._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onmouseup() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onmouseup())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -654,6 +700,7 @@ static v8::Handle<v8::Value> onmousewheelAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.Element.onmousewheel._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onmousewheel() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onmousewheel())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -671,6 +718,7 @@ static v8::Handle<v8::Value> onscrollAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.Element.onscroll._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onscroll() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onscroll())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -688,6 +736,7 @@ static v8::Handle<v8::Value> onselectAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.Element.onselect._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onselect() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onselect())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -705,6 +754,7 @@ static v8::Handle<v8::Value> onsubmitAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.Element.onsubmit._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onsubmit() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onsubmit())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -722,6 +772,7 @@ static v8::Handle<v8::Value> onbeforecutAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.onbeforecut._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onbeforecut() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onbeforecut())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -739,6 +790,7 @@ static v8::Handle<v8::Value> oncutAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.Element.oncut._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->oncut() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->oncut())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -756,6 +808,7 @@ static v8::Handle<v8::Value> onbeforecopyAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.Element.onbeforecopy._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onbeforecopy() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onbeforecopy())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -773,6 +826,7 @@ static v8::Handle<v8::Value> oncopyAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.Element.oncopy._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->oncopy() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->oncopy())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -790,6 +844,7 @@ static v8::Handle<v8::Value> onbeforepasteAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.Element.onbeforepaste._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onbeforepaste() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onbeforepaste())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -807,6 +862,7 @@ static v8::Handle<v8::Value> onpasteAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.Element.onpaste._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onpaste() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onpaste())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -824,6 +880,7 @@ static v8::Handle<v8::Value> onresetAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.Element.onreset._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onreset() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onreset())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -841,6 +898,7 @@ static v8::Handle<v8::Value> onsearchAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.Element.onsearch._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onsearch() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onsearch())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -858,6 +916,7 @@ static v8::Handle<v8::Value> onselectstartAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.Element.onselectstart._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onselectstart() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onselectstart())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -877,6 +936,7 @@ static v8::Handle<v8::Value> ontouchstartAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.Element.ontouchstart._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ontouchstart() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ontouchstart())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -902,6 +962,7 @@ static v8::Handle<v8::Value> ontouchmoveAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.Element.ontouchmove._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ontouchmove() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ontouchmove())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -927,6 +988,7 @@ static v8::Handle<v8::Value> ontouchendAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.Element.ontouchend._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ontouchend() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ontouchend())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -952,6 +1014,7 @@ static v8::Handle<v8::Value> ontouchcancelAttrGetter(v8::Local<v8::String> name,
 {
     INC_STATS("DOM.Element.ontouchcancel._get");
     Element* imp = V8Element::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ontouchcancel() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ontouchcancel())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -975,6 +1038,7 @@ static v8::Handle<v8::Value> getAttributeCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.getAttribute");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, name, args[0]);
     return v8StringOrNull(imp->getAttribute(name));
 }
@@ -1026,6 +1090,7 @@ static v8::Handle<v8::Value> getAttributeNodeCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.getAttributeNode");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, name, args[0]);
     return toV8(imp->getAttributeNode(name));
 }
@@ -1078,6 +1143,7 @@ static v8::Handle<v8::Value> getElementsByTagNameCallback(const v8::Arguments& a
 {
     INC_STATS("DOM.Element.getElementsByTagName");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, name, args[0]);
     return toV8(imp->getElementsByTagName(name));
 }
@@ -1086,6 +1152,7 @@ static v8::Handle<v8::Value> getAttributeNSCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.getAttributeNS");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<WithNullCheck>, namespaceURI, args[0]);
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, localName, args[1]);
     return v8String(imp->getAttributeNS(namespaceURI, localName));
@@ -1134,6 +1201,7 @@ static v8::Handle<v8::Value> getElementsByTagNameNSCallback(const v8::Arguments&
 {
     INC_STATS("DOM.Element.getElementsByTagNameNS");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<WithNullCheck>, namespaceURI, args[0]);
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, localName, args[1]);
     return toV8(imp->getElementsByTagNameNS(namespaceURI, localName));
@@ -1143,6 +1211,7 @@ static v8::Handle<v8::Value> getAttributeNodeNSCallback(const v8::Arguments& arg
 {
     INC_STATS("DOM.Element.getAttributeNodeNS");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<WithNullCheck>, namespaceURI, args[0]);
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, localName, args[1]);
     return toV8(imp->getAttributeNodeNS(namespaceURI, localName));
@@ -1173,6 +1242,7 @@ static v8::Handle<v8::Value> hasAttributeCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.hasAttribute");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, name, args[0]);
     return v8Boolean(imp->hasAttribute(name));
 }
@@ -1181,6 +1251,7 @@ static v8::Handle<v8::Value> hasAttributeNSCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.hasAttributeNS");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<WithNullCheck>, namespaceURI, args[0]);
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, localName, args[1]);
     return v8Boolean(imp->hasAttributeNS(namespaceURI, localName));
@@ -1190,6 +1261,7 @@ static v8::Handle<v8::Value> focusCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.focus");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     imp->focus();
     return v8::Handle<v8::Value>();
 }
@@ -1198,6 +1270,7 @@ static v8::Handle<v8::Value> blurCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.blur");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     imp->blur();
     return v8::Handle<v8::Value>();
 }
@@ -1206,6 +1279,7 @@ static v8::Handle<v8::Value> scrollIntoViewCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.scrollIntoView");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     if (args.Length() <= 0) {
         imp->scrollIntoView();
         return v8::Handle<v8::Value>();
@@ -1219,6 +1293,7 @@ static v8::Handle<v8::Value> containsCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.contains");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     EXCEPTION_BLOCK(Element*, element, V8Element::HasInstance(args[0]) ? V8Element::toNative(v8::Handle<v8::Object>::Cast(args[0])) : 0);
     return v8Boolean(imp->contains(element));
 }
@@ -1227,6 +1302,7 @@ static v8::Handle<v8::Value> scrollIntoViewIfNeededCallback(const v8::Arguments&
 {
     INC_STATS("DOM.Element.scrollIntoViewIfNeeded");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     if (args.Length() <= 0) {
         imp->scrollIntoViewIfNeeded();
         return v8::Handle<v8::Value>();
@@ -1240,6 +1316,7 @@ static v8::Handle<v8::Value> scrollByLinesCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.scrollByLines");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     EXCEPTION_BLOCK(int, lines, toInt32(args[0]));
     imp->scrollByLines(lines);
     return v8::Handle<v8::Value>();
@@ -1249,6 +1326,7 @@ static v8::Handle<v8::Value> scrollByPagesCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.scrollByPages");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     EXCEPTION_BLOCK(int, pages, toInt32(args[0]));
     imp->scrollByPages(pages);
     return v8::Handle<v8::Value>();
@@ -1258,6 +1336,7 @@ static v8::Handle<v8::Value> getElementsByClassNameCallback(const v8::Arguments&
 {
     INC_STATS("DOM.Element.getElementsByClassName");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, name, args[0]);
     return toV8(imp->getElementsByClassName(name));
 }
@@ -1266,6 +1345,7 @@ static v8::Handle<v8::Value> querySelectorCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.querySelector");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     ExceptionCode ec = 0;
     {
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, selectors, args[0]);
@@ -1283,6 +1363,7 @@ static v8::Handle<v8::Value> querySelectorAllCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.querySelectorAll");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     ExceptionCode ec = 0;
     {
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, selectors, args[0]);
@@ -1300,6 +1381,7 @@ static v8::Handle<v8::Value> webkitMatchesSelectorCallback(const v8::Arguments& 
 {
     INC_STATS("DOM.Element.webkitMatchesSelector");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     ExceptionCode ec = 0;
     {
     STRING_TO_V8PARAMETER_EXCEPTION_BLOCK(V8Parameter<>, selectors, args[0]);
@@ -1317,6 +1399,7 @@ static v8::Handle<v8::Value> getClientRectsCallback(const v8::Arguments& args)
 {
     INC_STATS("DOM.Element.getClientRects");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->getClientRects());
 }
 
@@ -1324,6 +1407,7 @@ static v8::Handle<v8::Value> getBoundingClientRectCallback(const v8::Arguments& 
 {
     INC_STATS("DOM.Element.getBoundingClientRect");
     Element* imp = V8Element::toNative(args.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->getBoundingClientRect());
 }
 

@@ -45,6 +45,7 @@ static v8::Handle<v8::Value> widthAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLVideoElement.width._get");
     HTMLVideoElement* imp = V8HTMLVideoElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::NewFromUnsigned(imp->getUnsignedIntegralAttribute(WebCore::HTMLNames::widthAttr));
 }
 
@@ -61,6 +62,7 @@ static v8::Handle<v8::Value> heightAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLVideoElement.height._get");
     HTMLVideoElement* imp = V8HTMLVideoElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::NewFromUnsigned(imp->getUnsignedIntegralAttribute(WebCore::HTMLNames::heightAttr));
 }
 
@@ -77,6 +79,7 @@ static v8::Handle<v8::Value> videoWidthAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLVideoElement.videoWidth._get");
     HTMLVideoElement* imp = V8HTMLVideoElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::NewFromUnsigned(imp->videoWidth());
 }
 
@@ -84,6 +87,7 @@ static v8::Handle<v8::Value> videoHeightAttrGetter(v8::Local<v8::String> name, c
 {
     INC_STATS("DOM.HTMLVideoElement.videoHeight._get");
     HTMLVideoElement* imp = V8HTMLVideoElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::NewFromUnsigned(imp->videoHeight());
 }
 
@@ -91,6 +95,7 @@ static v8::Handle<v8::Value> posterAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLVideoElement.poster._get");
     HTMLVideoElement* imp = V8HTMLVideoElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->getURLAttribute(WebCore::HTMLNames::posterAttr));
 }
 
@@ -104,6 +109,7 @@ static v8::Handle<v8::Value> webkitSupportsFullscreenAttrGetter(v8::Local<v8::St
 {
     INC_STATS("DOM.HTMLVideoElement.webkitSupportsFullscreen._get");
     HTMLVideoElement* imp = V8HTMLVideoElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->webkitSupportsFullscreen());
 }
 
@@ -111,6 +117,7 @@ static v8::Handle<v8::Value> webkitDisplayingFullscreenAttrGetter(v8::Local<v8::
 {
     INC_STATS("DOM.HTMLVideoElement.webkitDisplayingFullscreen._get");
     HTMLVideoElement* imp = V8HTMLVideoElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->webkitDisplayingFullscreen());
 }
 

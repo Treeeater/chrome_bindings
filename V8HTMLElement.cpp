@@ -111,6 +111,7 @@ static v8::Handle<v8::Value> tabIndexAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLElement.tabIndex._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8::Integer::New(imp->tabIndex());
 }
 
@@ -128,6 +129,7 @@ static v8::Handle<v8::Value> draggableAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLElement.draggable._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->draggable());
 }
 
@@ -145,6 +147,7 @@ static v8::Handle<v8::Value> hiddenAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLElement.hidden._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->hasAttribute(WebCore::HTMLNames::hiddenAttr));
 }
 
@@ -162,6 +165,7 @@ static v8::Handle<v8::Value> innerHTMLAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLElement.innerHTML._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->innerHTML());
 }
 
@@ -182,6 +186,7 @@ static v8::Handle<v8::Value> innerTextAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLElement.innerText._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->innerText());
 }
 
@@ -202,6 +207,7 @@ static v8::Handle<v8::Value> outerHTMLAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLElement.outerHTML._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->outerHTML());
 }
 
@@ -222,6 +228,7 @@ static v8::Handle<v8::Value> outerTextAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLElement.outerText._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->outerText());
 }
 
@@ -242,6 +249,7 @@ static v8::Handle<v8::Value> childrenAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLElement.children._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->children());
 }
 
@@ -249,6 +257,7 @@ static v8::Handle<v8::Value> contentEditableAttrGetter(v8::Local<v8::String> nam
 {
     INC_STATS("DOM.HTMLElement.contentEditable._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->contentEditable());
 }
 
@@ -266,6 +275,7 @@ static v8::Handle<v8::Value> isContentEditableAttrGetter(v8::Local<v8::String> n
 {
     INC_STATS("DOM.HTMLElement.isContentEditable._get");
     HTMLElement* imp = V8HTMLElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->isContentEditable());
 }
 

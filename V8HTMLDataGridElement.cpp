@@ -47,6 +47,7 @@ static v8::Handle<v8::Value> columnsAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLDataGridElement.columns._get");
     HTMLDataGridElement* imp = V8HTMLDataGridElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->columns());
 }
 
@@ -54,6 +55,7 @@ static v8::Handle<v8::Value> autofocusAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLDataGridElement.autofocus._get");
     HTMLDataGridElement* imp = V8HTMLDataGridElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->autofocus());
 }
 
@@ -70,6 +72,7 @@ static v8::Handle<v8::Value> disabledAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLDataGridElement.disabled._get");
     HTMLDataGridElement* imp = V8HTMLDataGridElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->disabled());
 }
 
@@ -86,6 +89,7 @@ static v8::Handle<v8::Value> multipleAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLDataGridElement.multiple._get");
     HTMLDataGridElement* imp = V8HTMLDataGridElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8Boolean(imp->multiple());
 }
 

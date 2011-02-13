@@ -175,6 +175,7 @@ static v8::Handle<v8::Value> hashAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLAnchorElement.hash._get");
     HTMLAnchorElement* imp = V8HTMLAnchorElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->hash());
 }
 
@@ -191,6 +192,7 @@ static v8::Handle<v8::Value> hostAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLAnchorElement.host._get");
     HTMLAnchorElement* imp = V8HTMLAnchorElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->host());
 }
 
@@ -207,6 +209,7 @@ static v8::Handle<v8::Value> hostnameAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLAnchorElement.hostname._get");
     HTMLAnchorElement* imp = V8HTMLAnchorElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->hostname());
 }
 
@@ -223,6 +226,7 @@ static v8::Handle<v8::Value> pathnameAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLAnchorElement.pathname._get");
     HTMLAnchorElement* imp = V8HTMLAnchorElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->pathname());
 }
 
@@ -239,6 +243,7 @@ static v8::Handle<v8::Value> portAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLAnchorElement.port._get");
     HTMLAnchorElement* imp = V8HTMLAnchorElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->port());
 }
 
@@ -255,6 +260,7 @@ static v8::Handle<v8::Value> protocolAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLAnchorElement.protocol._get");
     HTMLAnchorElement* imp = V8HTMLAnchorElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->protocol());
 }
 
@@ -271,6 +277,7 @@ static v8::Handle<v8::Value> searchAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLAnchorElement.search._get");
     HTMLAnchorElement* imp = V8HTMLAnchorElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->search());
 }
 
@@ -287,6 +294,7 @@ static v8::Handle<v8::Value> textAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLAnchorElement.text._get");
     HTMLAnchorElement* imp = V8HTMLAnchorElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return v8String(imp->text());
 }
 

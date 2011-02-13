@@ -50,6 +50,7 @@ static v8::Handle<v8::Value> captionAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLTableElement.caption._get");
     HTMLTableElement* imp = V8HTMLTableElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->caption());
 }
 
@@ -69,6 +70,7 @@ static v8::Handle<v8::Value> tHeadAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLTableElement.tHead._get");
     HTMLTableElement* imp = V8HTMLTableElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->tHead());
 }
 
@@ -88,6 +90,7 @@ static v8::Handle<v8::Value> tFootAttrGetter(v8::Local<v8::String> name, const v
 {
     INC_STATS("DOM.HTMLTableElement.tFoot._get");
     HTMLTableElement* imp = V8HTMLTableElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->tFoot());
 }
 
@@ -107,6 +110,7 @@ static v8::Handle<v8::Value> rowsAttrGetter(v8::Local<v8::String> name, const v8
 {
     INC_STATS("DOM.HTMLTableElement.rows._get");
     HTMLTableElement* imp = V8HTMLTableElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->rows());
 }
 
@@ -114,6 +118,7 @@ static v8::Handle<v8::Value> tBodiesAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLTableElement.tBodies._get");
     HTMLTableElement* imp = V8HTMLTableElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return toV8(imp->tBodies());
 }
 

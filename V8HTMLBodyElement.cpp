@@ -116,6 +116,7 @@ static v8::Handle<v8::Value> onbeforeunloadAttrGetter(v8::Local<v8::String> name
 {
     INC_STATS("DOM.HTMLBodyElement.onbeforeunload._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onbeforeunload() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onbeforeunload())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -132,6 +133,7 @@ static v8::Handle<v8::Value> onhashchangeAttrGetter(v8::Local<v8::String> name, 
 {
     INC_STATS("DOM.HTMLBodyElement.onhashchange._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onhashchange() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onhashchange())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -148,6 +150,7 @@ static v8::Handle<v8::Value> onmessageAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLBodyElement.onmessage._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onmessage() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onmessage())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -164,6 +167,7 @@ static v8::Handle<v8::Value> onofflineAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLBodyElement.onoffline._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onoffline() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onoffline())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -180,6 +184,7 @@ static v8::Handle<v8::Value> ononlineAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLBodyElement.ononline._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->ononline() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->ononline())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -196,6 +201,7 @@ static v8::Handle<v8::Value> onpopstateAttrGetter(v8::Local<v8::String> name, co
 {
     INC_STATS("DOM.HTMLBodyElement.onpopstate._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onpopstate() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onpopstate())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -212,6 +218,7 @@ static v8::Handle<v8::Value> onresizeAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLBodyElement.onresize._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onresize() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onresize())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -228,6 +235,7 @@ static v8::Handle<v8::Value> onstorageAttrGetter(v8::Local<v8::String> name, con
 {
     INC_STATS("DOM.HTMLBodyElement.onstorage._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onstorage() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onstorage())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -244,6 +252,7 @@ static v8::Handle<v8::Value> onunloadAttrGetter(v8::Local<v8::String> name, cons
 {
     INC_STATS("DOM.HTMLBodyElement.onunload._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onunload() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onunload())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -260,6 +269,7 @@ static v8::Handle<v8::Value> onblurAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLBodyElement.onblur._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onblur() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onblur())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -276,6 +286,7 @@ static v8::Handle<v8::Value> onerrorAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLBodyElement.onerror._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onerror() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onerror())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -292,6 +303,7 @@ static v8::Handle<v8::Value> onfocusAttrGetter(v8::Local<v8::String> name, const
 {
     INC_STATS("DOM.HTMLBodyElement.onfocus._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onfocus() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onfocus())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
@@ -308,6 +320,7 @@ static v8::Handle<v8::Value> onloadAttrGetter(v8::Local<v8::String> name, const 
 {
     INC_STATS("DOM.HTMLBodyElement.onload._get");
     HTMLBodyElement* imp = V8HTMLBodyElement::toNative(info.Holder());
+	if (!R_check(imp)) return v8::Handle<v8::Value>(v8::Undefined());
     return imp->onload() ? v8::Handle<v8::Value>(static_cast<V8AbstractEventListener*>(imp->onload())->getListenerObject(imp->scriptExecutionContext())) : v8::Handle<v8::Value>(v8::Null());
 }
 
